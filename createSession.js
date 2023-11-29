@@ -3,8 +3,7 @@ import ini from 'ini'
 import { TelegramClient } from 'telegram'
 import { StringSession } from 'telegram/sessions/index.js'
 import { bot_start } from './bot_commands.js'
-import input from 'input'
-export default async function createSession (config) {
+export default async function createSession(config) {
 
 	const client = new TelegramClient(
 		new StringSession(config.USER.SESSION),
@@ -16,9 +15,9 @@ export default async function createSession (config) {
 	);
 
 	await client.start({
-		phoneNumber: async () => await input.text('Please enter your number: '),
-		password: async () => await input.text("Please enter your password"),
-		phoneCode: async () => await input.text("Please enter the code you received: "),
+		phoneNumber: async () => await input.text('Введите номер телефона: '),
+		password: async () => await input.text("Введите пароль: "),
+		phoneCode: async () => await input.text("Введите полученный код: "),
 		onError: (err) => console.error(err),
 	});
 
@@ -26,12 +25,12 @@ export default async function createSession (config) {
 		config.USER.SESSION = client.session.save();
 		fs.writeFileSync("./config.ini", ini.stringify(config));
 		await client.sendMessage("me", {
-		message:
-			"String session generated on this account for userbot your string session is \n\`\`\`" +
-			client.session.save() +
-			"\`\`\`",
+			message:
+				"String session generated on this account for userbot your string session is \n\`\`\`" +
+				client.session.save() +
+				"\`\`\`",
 		});
 	}
-	
+
 	await bot_start(client);
 };

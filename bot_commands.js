@@ -1,9 +1,13 @@
 import { NewMessage } from "telegram/events/NewMessage.js"
 import ping from './modules/ping.js'
 import exec from './modules/exec.js'
+import anim from './modules/anim.js'
+import love from "./modules/love.js"
 const commands = {
   ping,
   exec,
+  anim,
+  love,
 };
 let client;
 
@@ -14,10 +18,10 @@ async function listenMessageEvent({ message }) {
   if (senderId?.equals(me.id)) {
     const [cmd, ...args] = text.split(" ");
 
-    if (cmd.startsWith("?") && cmd.slice(1) in commands) {
+    if (cmd.startsWith("/") && cmd.slice(1) in commands) {
       await commands[cmd.slice(1)](message);
     }
-    
+
   }
 }
 
