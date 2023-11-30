@@ -16,7 +16,7 @@ export default async function love(msg) {
   let h = "⬜️"
   let first = ''
 
-  const firstArr = [r(h, 9), "\n", h, h, arr[0].repeat(2), h, arr[0].repeat(2), h, h, "\n", h, arr[0].repeat(7), h, "\n", h, arr[0].repeat(7), h, "\n", h, arr[0].repeat(7), h, "\n", h, h, arr[0].repeat(5), h, h, "\n", h, h, h, arr[0].repeat(3), h, h, h, "\n", h, h, h, h, arr[0], h, h, h, h].join("").split("\n")
+  const firstArr = [r(h, 9), "\n", h, h, r(arr[0], 2), h, r(arr[0], 2), h, h, "\n", h, r(arr[0], 7), h, "\n", h, r(arr[0], 7), h, "\n", h, r(arr[0], 7), h, "\n", h, h, r(arr[0], 5), h, h, "\n", h, h, h, arr[0].repeat(3), h, h, h, "\n", h, h, h, h, arr[0], h, h, h, h].join("").split("\n")
 
   for (let i in firstArr) {
     first += firstArr[i] + "\n"

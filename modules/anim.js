@@ -1,5 +1,8 @@
+import settings from '../settings.json' assert {type: 'json'}
+
 export default async function anim(msg) {
-  let text = msg.message.replace(/\/anim\s?/, '')
+  const regex = RegExp(`${settings.startSymbolInCommands}anim\s?`)
+  const text = msg.message.replace(regex, '')
 
 
   async function animOutput(text) {
