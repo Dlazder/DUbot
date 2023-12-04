@@ -1,12 +1,9 @@
 import { sendMessage } from "telegram/client/messages.js";
-import { evenWeek } from "./cabinetInfo.js";
-import { getDay, isEvenWeek } from "./getData.js";
-import { client } from "telegram";
+import { getShedule} from "./getData.js";
 
-export default async function cab(msg, isMe = false) {
-    const todaysShedule = evenWeek[getDay()].join('\n')
+export default async function cab(msg, isMe = true) {
+    const todaysShedule = getShedule().join('\n').replace(/,/g, ', ')
     console.log(todaysShedule)
-    console.log(isMe)
 
     if (!isMe) {
         await sendMessage(msg, {text: todaysShedule})

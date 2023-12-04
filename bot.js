@@ -1,7 +1,6 @@
 import fs from 'fs'
 import ini from 'ini'
 import createSession from './createSession.js'
-import settings from './settings.json' assert {type: 'json'}
 
 (async () => {
 
@@ -20,5 +19,5 @@ import settings from './settings.json' assert {type: 'json'}
     console.log('Starting bot');
   }
 
-  createSession(config, settings);
+  createSession(config);
 })();

@@ -1,5 +1,5 @@
 import { spawn, spawnSync } from 'child_process'
-import settings from '../settings.json' assert {type: 'json'}
+import {settings} from '../settings.js'
 
 export default async function execute(msg) {
     const regex = RegExp(`${settings.startSymbolInCommands}exec\s?`)

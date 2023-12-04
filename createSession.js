@@ -3,7 +3,7 @@ import ini from 'ini'
 import { TelegramClient } from 'telegram'
 import { StringSession } from 'telegram/sessions/index.js'
 import { bot_start } from './bot_commands.js'
-export default async function createSession(config, settings) {
+export default async function createSession(config) {
 
 	const client = new TelegramClient(
 		new StringSession(config.USER.SESSION),
@@ -32,5 +32,5 @@ export default async function createSession(config, settings) {
 		});
 	}
 
-	await bot_start(client, settings);
+	await bot_start(client);
 };

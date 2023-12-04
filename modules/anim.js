@@ -1,4 +1,4 @@
-import settings from '../settings.json' assert {type: 'json'}
+import {settings} from '../settings.js'
 
 export default async function anim(msg) {
   const regex = RegExp(`${settings.startSymbolInCommands}anim\s?`)
