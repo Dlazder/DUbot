@@ -14,7 +14,7 @@ export function isEvenWeek(date = new Date()) {
     const startDayYear = startYear.getDay(startYear)
     const numberDayInYear = Math.floor((date - startYear) / 8640000)
 
-    const weekNumber = Math.floor((numberDayInYear + startDayYear) / 7) + 1
+    const weekNumber = Math.floor((numberDayInYear + startDayYear) / 7)
 
     return !!(weekNumber % 2 === 0)
 }
