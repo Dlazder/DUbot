@@ -1,12 +1,14 @@
 import { evenWeek, oddWeek } from "./cabinetInfo.js";
 
-export function getDay(day = new Date()) {
+export function getDay(param, day = new Date()) {
     const today = day.getDay()
+    let dayNum = 0;
     if (today === 0) {
-        return 6
+        dayNum = 6
     } else {
-        return today - 1
+        dayNum = today - 1
     }
+    return dayNum + Number(param[0])
 }
 
 export function isEvenWeek(date = new Date()) {
@@ -19,6 +21,6 @@ export function isEvenWeek(date = new Date()) {
     return !!(weekNumber % 2 === 0)
 }
 
-export function getShedule() {
-    return isEvenWeek() ? evenWeek[getDay()] : oddWeek[getDay()]
+export function getShedule(param) {
+    return isEvenWeek() ? evenWeek[getDay(param)] : oddWeek[getDay(param)]
 }
